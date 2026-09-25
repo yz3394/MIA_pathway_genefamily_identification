@@ -10,7 +10,7 @@ These are snapshots verified from project files on 2026-09-25, not default param
 | STR | Strict high-identity BLAST 6; broader BLAST 55; HMM 50; integrated working list 49. | PF03088 defines STR/SSL-domain candidates. Its model length is only 89 positions in this run; high model coverage is not proof of full-protein completeness or STR catalysis. |
 | TDC | Broad BLAST 23; full-proteome PF00282 26; combined reviewed pool 35. Adopted set 11 = 5 high-priority TDC-like + 5 TYDC/PAAS-related AAAD + 1 model-review candidate. | PF00282 has broader scope than TDC. Query audit, close functional alternatives, and model integrity are essential. Preserve the project's 11-member scope and its subdivisions. |
 | MATE | Strict BLAST 57; broader BLAST 105; HMM sequence hits 102, qualifying-domain proteins 101; adopted set 101. | Identity >60% missed domain-supported candidates. Keep sequence-only and domain-supported sets distinct; no reference phylogeny is documented in this final workflow. |
-| SGD | BLAST and PF00232 yield the same 86 GH1 candidates. The saved five assay priorities remain function-unresolved. The updated evidence table additionally identifies one exact-sequence match to a patent's heterologous-pathway CarSGD; the other 85 remain unresolved. | Search agreement does not establish substrate specificity. Preserve experimental evidence at its actual level and reassess old assay priorities when new evidence arrives. |
+| SGD | BLAST and PF00232 yield the same 86 GH1 candidates. The updated working set has 8: 1 exact sequence linked to CarSGD heterologous-pathway evidence + 2 untested CarSGD close homologs + 5 untested MsSGD1 similarity priorities. The other 78 remain function-unresolved; the 7 untested priorities also lack functional confirmation. | Use distinct evidence routes and preserve all unresolved members. Reference-panel changes affect ranking; nearest-reference labels cannot override exact-sequence experimental correspondence. See [the detailed SGD tiering example](sgd-evidence-tiering-example.md). |
 
 ## Reference problems worth checking in new families
 
@@ -48,5 +48,6 @@ GA scores, model versions, full-library releases, BLAST thresholds, domain combi
 - `TDC_family/README.md`; `TDC_family/5.TDC.gene.family/README.md`; `TDC_family/3.query_audit.TDC/README.md`
 - `MATE_family/README.md`; `MATE_family/4.verified.MATE/README_final_gene_list.md`
 - `SGD_family/README.md`; `SGD_family/5.SGD_specific_analysis/04_integrated/SGD86_sequence_evidence_with_MsSGD.tsv`
+- `SGD_family/SGD_identification_record_20260925.md`; `SGD_family/6.SGD.list/README.md`; `SGD_family/5.SGD_specific_analysis/04_integrated/build_sgd86_evidence.py`
 - `SGD_family/5.SGD_specific_analysis/01_references/patent_CarSGD_evidence.md`; `SGD_family/5.SGD_specific_analysis/01_references/XP_027073002.1.fasta`
 - `过程/domain_reaudit_20260921/mdr_audit/MDR_CDD_independent_confirmation.md`
