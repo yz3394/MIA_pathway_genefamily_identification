@@ -1,0 +1,22 @@
+# Local credentials and machine state
+.env
+.env.*
+!.env.example
+config.env
+*.pem
+*.key
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# Keep study-scale inputs and outputs in their research projects
+/data/
+/raw_data/
+/results/
+/runs/
+/databases/
+/backups/
+*.zip
+*.tar.gz
