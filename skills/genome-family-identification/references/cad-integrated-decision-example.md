@@ -6,6 +6,8 @@ This is a Coffee ET-39 case, checked on 2026-09-25. It demonstrates how to stand
 
 The user clarified that the narrowing from 72 to 17 used CDD, Pfam, KEGG KO annotations, and phylogenetic clustering together. Preserve that integrated rationale. An earlier description only called this a user-selected list and did not capture the biological basis adequately.
 
+The subsequently supplied manual workbook `1-MDR_superfamily_list-20260923.xlsx` records a complementary view starting from the 92-member length-selected MDR pool: 12 `cd05283/CAD1 specific` proteins, 11 formal K00083 assignments, and 12 manually retained CAD candidates. This directly documents the paired annotations and the retained KO exception. It does not make `Specific AND K00083` an exact rule for all 12. See [the joint CAD/ADH reconstruction](mdr-cad-adh-cdd-ko-example.md) for worksheet ranges and the different ADH narrowing step. The 92-member MDR pool and 80-member CAD BLAST pool are different input sets, with 64 proteins in common.
+
 ## Retrospective rules that reproduce the lists
 
 Starting with `all_80_CAD_evidence_assessment.tsv`:
