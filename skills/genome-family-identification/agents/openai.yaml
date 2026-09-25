@@ -1,0 +1,6 @@
+interface:
+  display_name: "全基因组基因家族鉴定"
+  short_description: "基于文献、同源搜索、结构域及系统发育证据，鉴定并复核基因家族候选成员"
+  default_prompt: "使用 $genome-family-identification 对指定物种和基因家族进行全基因组候选鉴定，记录家族范围、数据版本、逐成员证据和可复现结果。"
+policy:
+  allow_implicit_invocation: true
