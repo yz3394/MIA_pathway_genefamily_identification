@@ -2,7 +2,7 @@
 name: genome-family-identification
 description: 全基因组基因家族鉴定、候选成员复核及方法记录。Identify and audit genome-wide protein-coding gene-family candidates, especially plant families, using literature-curated references, BLASTP, HMM/Pfam, NCBI CDD, KO annotation, gene-model checks, and reference phylogeny. Use for new species or families and candidate-list review. Does not establish enzyme activity from sequence alone or automatically expand into expression, synteny, or promoter analysis.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Genome-wide gene-family identification
@@ -66,6 +66,8 @@ Inspect alignment quality before tree inference; consider homologous-domain tree
 Map functional sites using an alignment to a named reference accession/version, retaining reference position, candidate position, residue, and gap/ambiguity state. Raw residue numbers are not transferable between proteins. Conserved sites support compatibility; nearest BLAST hit, a tree branch, KO label, or conserved residues alone cannot prove substrate specificity. An atypical residue may warrant a broader comparator set or experimental prioritization, rather than automatic exclusion.
 
 When a candidate exactly matches an experimentally used protein sequence, verify the match and source experiment and preserve that evidence at its actual level: heterologous pathway support, direct enzyme assay, or endogenous function. Do not downgrade source-backed experimental evidence merely because a similarity ranking favors another reference. New evidence can require a proposed priority update while the previously adopted list remains a historical artifact.
+
+For an experiment-priority set, allow separately justified routes such as exact experimental-sequence correspondence, close homologs of that sequence, and comparative sequence prioritization. Record route precedence and overlaps instead of requiring every route to pass the same similarity filter. Close homologs do not inherit the reference's experimental evidence. Version the reference panel and reassess rankings when relevant lineages or functional alternatives are added. If characterized target enzymes are interspersed with other activities, do not impose a target-only monophyletic branch. Read [the SGD tiering example](references/sgd-evidence-tiering-example.md) for this case and the distinction between executable selection gates and supporting review evidence.
 
 Use sensitivity analyses only for consequential uncertainty: omitted fragments, questionable references, alternative domain regions, or competing subgroup placements. Family membership and inclusion in a particular phylogenetic dataset are separate decisions.
 
