@@ -2,7 +2,7 @@
 name: genome-family-identification
 description: 全基因组基因家族鉴定、候选成员复核及方法记录。Identify and audit genome-wide protein-coding gene-family candidates, especially plant families, using literature-curated references, BLASTP, HMM/Pfam, NCBI CDD, KO annotation, gene-model checks, and reference phylogeny. Use for new species or families and candidate-list review. Does not establish enzyme activity from sequence alone or automatically expand into expression, synteny, or promoter analysis.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Genome-wide gene-family identification
@@ -60,6 +60,8 @@ For function-related subgroups, use phylogeny containing accession-verified func
 Assign evidence roles before combining results: Pfam supports domain membership/architecture; relevant CDD models refine conserved-family identity; reference phylogeny supports subgroup placement; KO annotations provide functional support and alternative interpretations. Use family-specific required gates, supporting evidence, review triggers, and explicit exception reasons. Do not reduce integrated judgment to a vote count or require every annotation to agree.
 
 When KO is relevant, distinguish provider annotations from newly computed assignments, record the database/version and actual query set, and retain formal model-threshold results separately from exploratory hits. For each method, distinguish not tested, tested but not reported, reported below threshold, passing support, and a supported alternative requiring review. Evidence only obtained for a later subset cannot explain earlier exclusions outside that subset. See [the CAD decision example](references/cad-integrated-decision-example.md) for a validated reconstruction and evidence conflicts.
+
+When narrowing a superfamily with paired CDD/KO annotations, first fix the input universe and compare the two candidate sets, their overlap, and exceptions. A CDD `specific` hit supports the model-defined family; it is not an assay of the candidate's substrate specificity. Agreement with a KO can still include several reference-defined subgroups. Read [the MDR → CAD/ADH example](references/mdr-cad-adh-cdd-ko-example.md) when using these model/KO pairs or auditing a manual shortlist. Keep the annotated candidate branch separate from a narrower phylogenetic subgroup and from the adopted project list.
 
 Inspect alignment quality before tree inference; consider homologous-domain trees for fusions or fragments. Save untrimmed and trimmed alignments and record taxa, excluded sequences, trimming, model selection or the actual fixed model, seed, support method, and rooting. Record unsuccessful steps honestly. Label FastTree SH-like support, SH-aLRT, and bootstrap as their actual statistics.
 
