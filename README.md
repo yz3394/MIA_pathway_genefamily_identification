@@ -1,6 +1,6 @@
 # MIA pathway gene-family identification skills
 
-个人科研 Skill 的源码、版本记录与迁移说明。用户指定的保存目标：[yz3394/MIA_pathway_genefamily_identification](https://github.com/yz3394/MIA_pathway_genefamily_identification)。当前包含 `genome-family-identification` 1.1.0。
+个人科研 Skill 的源码、版本记录与迁移说明。用户指定的保存目标：[yz3394/MIA_pathway_genefamily_identification](https://github.com/yz3394/MIA_pathway_genefamily_identification)。当前包含 `genome-family-identification` 1.2.0。
 
 ## 内容与状态
 
@@ -15,10 +15,10 @@ MIA_pathway_genefamily_identification/
     └── genome-family-identification/
         ├── SKILL.md
         ├── agents/openai.yaml
-        └── references/                 # 5 个配套参考文件
+        └── references/                 # 6 个配套参考文件
 ```
 
-这里保存 Skill 的可迁移源码。当前 Skill 共 7 个文件；1.1.0 补充了咖啡 GH1→SGD 的分层筛选案例，以及参考面板与不同证据路线的处理方法。变化和验证边界见 [CHANGELOG.md](CHANGELOG.md)。
+这里保存 Skill 的可迁移源码。当前 Skill 共 8 个文件；1.1.0 补充咖啡 GH1→SGD 的分层筛选，1.2.0 补充手动记录验证的 MDR→CAD/ADH 分支识别及 CDD/KO 证据边界。变化和验证范围见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 保存与版本管理
 
@@ -35,7 +35,7 @@ MIA_pathway_genefamily_identification/
 
 在新环境中登录有权访问目标仓库的 GitHub 账户，然后对 Codex 说：
 
-> 使用 $skill-installer，从 yz3394/MIA_pathway_genefamily_identification 仓库安装 skills/genome-family-identification，版本指定为 genome-family-identification-v1.1.0。安装后检查完整性与 Skill 可见性。
+> 使用 $skill-installer，从 yz3394/MIA_pathway_genefamily_identification 仓库安装 skills/genome-family-identification，版本指定为 genome-family-identification-v1.2.0。安装后检查完整性与 Skill 可见性。
 
 也可以先把仓库克隆到本机，再把完整的 `skills/genome-family-identification/` 目录复制到 `~/.agents/skills/`。该目录是当前官方文档中的用户级发现位置，也支持符号链接。若 Skill 未显示，重启 Codex 后检查。[OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills)
 
