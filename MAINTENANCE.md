@@ -1,58 +1,58 @@
-# 从实际使用中改进 Skill
+# Improve skills through actual use
 
-## 一次迭代的最小流程
+## Minimal workflow for one iteration
 
-1. **记录问题。** 保存任务背景、具体表现、输入与版本、证据位置、预期行为。可写在项目复盘中；需要处理时建立 GitHub Issue，避免仅存于聊天记录。
-2. **判断适用范围。** 软件/解析错误、通用流程缺陷、家族特例、该物种注释异常分别处理。未验证的观察先作为待查问题。
-3. **修改源码。** 在仓库分支中做局部修正；通用规则写入入口或方法参考，家族特例写入对应案例。研究数据与候选清单继续保存在研究项目中。
-4. **复核。** 检查文件格式、引用和必要脚本，并运行受影响的历史或合成案例；重大规则变更增加一个不同家族/物种案例。明确未执行的检查。
-5. **发布。** 更新版本和 CHANGELOG，提交、合并、打新标签、推送；核对远端提交。发布说明记录变化原因、证据、验证和限制。
-6. **安装。** 更新本机运行副本并核对实际版本。每个研究项目记录其使用版本；旧分析继续保留原始结果。
+1. **Record the issue.** Save the task context, observed behavior, inputs and versions, evidence location, and expected behavior. Record it in a project retrospective; when action is needed, create a GitHub Issue so the information does not remain only in chat history.
+2. **Determine the scope.** Distinguish software/parser errors, general workflow problems, family-specific cases, and species-specific annotation anomalies. Keep unverified observations as issues to investigate.
+3. **Edit the source.** Make focused changes on a repository branch. Put general rules in the entrypoint or method references and family-specific cases in the relevant example. Keep research data and candidate lists in their research projects.
+4. **Validate.** Check file formats, references, and relevant scripts, and run affected historical or synthetic cases. For substantial rule changes, add a case from a different family or species. State which checks were not performed.
+5. **Release.** Update the version and CHANGELOG, commit, merge, create a new tag, and push; verify the remote commit. Release notes should record the reason for the change, evidence, validation, and limitations.
+6. **Install.** Update the local runtime copy and verify its actual version. Each research project should record the version it uses; preserve original results from older analyses.
 
-常用指令：
+Example maintenance request:
 
-> 请复盘本次分析发现的 Skill 问题，区分通用改进与家族特例。在 yz3394/MIA_pathway_genefamily_identification 仓库中修改相关内容，验证受影响案例，更新版本及 CHANGELOG，并把通过验证的修改同步到已指定的 GitHub 仓库。最后报告提交号、安装状态和未验证项。
+> Review the skill issues found in this analysis and distinguish general improvements from family-specific cases. Update the relevant content in yz3394/MIA_pathway_genefamily_identification, validate affected cases, update the version and CHANGELOG, and synchronize validated changes to the designated GitHub repository. Report the commit, installation status, and any unverified items.
 
-这条指令需要在实际任务中发出；仓库文件不会自行学习或自动上传。普通分析默认读取已安装 Skill，是否将其经验用于维护由后续维护任务处理。
+This instruction must be issued in an actual task; repository files do not learn or upload themselves. Routine analyses use the installed skill by default. A subsequent maintenance task determines whether their findings should inform skill updates.
 
-## 版本约定
+## Versioning convention
 
-| 变化 | 示例版本 | 含义 |
+| Change | Example version | Meaning |
 |---|---|---|
-| 小修正 | 1.0.0 → 1.0.1 | 错字、来源说明、局部缺陷修复；若修复影响名单，明确报告集合差异 |
-| 兼容扩展 | 1.0.1 → 1.1.0 | 新家族案例、可选分支或兼容字段 |
-| 重要规则/输出改变 | 1.x → 2.0.0 | 改变默认判定逻辑或不兼容输出；解释旧结果比较方式 |
+| Small correction | 1.0.0 → 1.0.1 | Typo, source clarification, or localized bug fix; explicitly report set differences if the fix affects a candidate list |
+| Compatible extension | 1.0.1 → 1.1.0 | New family example, optional workflow branch, or compatible field |
+| Major rule/output change | 1.x → 2.0.0 | Changed default decision logic or incompatible output; explain how to compare with older results |
 
-每个 Skill 独立使用 `技能名称-v版本号` 标签，例如 `genome-family-identification-v1.0.0`。版本号表达变更范围，不表示已经完成多少生物学验证。
+Each skill uses its own `skill-name-vVERSION` tags, for example `genome-family-identification-v1.0.0`. The version number describes the scope of a change, not the amount of biological validation completed.
 
-## 一条改进记录应包含
+## Contents of an improvement record
 
 ```text
-Skill 名称与旧版本：
-发现问题的任务、物种及家族：
-输入/输出来源与可复核证据：
-实际行为与预期行为：
-适用范围：通用 / 家族特例 / 物种或项目特例
-修改内容与科学解释：
-验证案例、结果和未验证部分：
-旧/新候选 ID 差异及原因（若涉及名单）：
-新版本、提交号、是否推送、是否安装：
+Skill name and previous version:
+Task, species, and family in which the issue was found:
+Input/output sources and inspectable evidence:
+Observed and expected behavior:
+Scope: general / family-specific / species- or project-specific
+Changes and scientific rationale:
+Validation cases, results, and unverified aspects:
+Old/new candidate ID differences and reasons, if a list is affected:
+New version, commit, push status, and installation status:
 ```
 
-## 基因家族 Skill 的最小行为复核
+## Minimal behavioral checks for the gene-family skill
 
-以下是后续更新时使用的检查任务，不代表已在本仓库重新执行。格式校验不能替代这些判断。
+These are review tasks for future updates; their presence here does not mean they have been rerun in this repository. Format validation cannot substitute for these judgments.
 
-### CAD 综合证据与 KO 范围
+### Integrated CAD evidence and KO scope
 
-使用 Skill 中的 CAD 案例及必要原始表（若可用）复核：能区分 80→72→17→12 的回溯重建与历史综合判断；保留 KO 未过阈值但有其他支持的项目成员；不把未参加 KO 分析的候选记成阈值未通过；不将最终 12 条全部标注为实验确认的经典 CAD。
+Use the skill's CAD example and the necessary raw tables, if available, to check that the workflow distinguishes retrospective reconstruction of 80→72→17→12 from the historical integrated judgment; retains project members that fail the KO threshold but have other support; does not label candidates outside the KO input set as threshold failures; and does not label all final 12 as experimentally confirmed classical CADs.
 
-### HMM 序列与结构域阈值
+### HMM sequence and domain thresholds
 
-提供序列总分达到阈值、但目标结构域未达到其纳入阈值的最小原始输出或合成例子。确认报告命中数和符合域标准的蛋白数分别计算；切换 `hmmsearch` / `hmmscan` 时正确解释 query/target。若没有相关解析代码，以独立任务检验解释结果，不能用文本关键词匹配作为行为通过依据。
+Provide minimal raw output or a synthetic example in which the full-sequence score passes its threshold but the target domain fails its inclusion threshold. Confirm that reported hit counts and counts of proteins meeting the domain criteria are calculated separately, and that query/target orientation is interpreted correctly when switching between `hmmsearch` and `hmmscan`. If there is no relevant parsing code, test the interpretation in an independent task; matching text keywords does not demonstrate correct behavior.
 
-### 新物种与多倍体
+### New species and polyploids
 
-提供与咖啡不同的 ID 格式和包含同源亚基因组位点的注释映射，检查是否按实际映射统计基因、转录本和蛋白，保留不同位点；不沿用咖啡的长度范围、固定候选数或 ID 截断规则。
+Provide IDs that differ from the coffee format and an annotation mapping that contains homeologous subgenome loci. Check that genes, transcripts, and proteins are counted using the actual mapping and that distinct loci are retained. Do not carry over coffee length ranges, fixed candidate counts, or ID-truncation rules.
 
-出现实际解析问题后再保存小型 fixture 并增加自动测试。有稳定脚本后，可将格式/文件检查放入 GitHub Actions；生物学判断与实际任务复核继续单独记录。
+Save a small fixture and add an automated test when an actual parsing problem is identified. Once stable scripts are available, format/file checks can be added to GitHub Actions; biological judgments and reviews of actual tasks remain separately documented.

@@ -1,8 +1,8 @@
 # MIA pathway gene-family identification skills
 
-个人科研 Skill 的源码、版本记录与迁移说明。用户指定的保存目标：[yz3394/MIA_pathway_genefamily_identification](https://github.com/yz3394/MIA_pathway_genefamily_identification)。当前包含 `genome-family-identification` 1.2.0。
+Source, version history, and migration instructions for personal research skills. The user-designated repository is [yz3394/MIA_pathway_genefamily_identification](https://github.com/yz3394/MIA_pathway_genefamily_identification). It currently contains `genome-family-identification` 1.2.1.
 
-## 内容与状态
+## Contents and status
 
 ```text
 MIA_pathway_genefamily_identification/
@@ -15,48 +15,48 @@ MIA_pathway_genefamily_identification/
     └── genome-family-identification/
         ├── SKILL.md
         ├── agents/openai.yaml
-        └── references/                 # 6 个配套参考文件
+        └── references/                 # 6 supporting reference files
 ```
 
-这里保存 Skill 的可迁移源码。当前 Skill 共 8 个文件；1.1.0 补充咖啡 GH1→SGD 的分层筛选，1.2.0 补充手动记录验证的 MDR→CAD/ADH 分支识别及 CDD/KO 证据边界。变化和验证范围见 [CHANGELOG.md](CHANGELOG.md)。
+This repository stores the portable skill source. The skill currently contains 8 files. Version 1.1.0 added evidence-tiered coffee GH1 → SGD screening; 1.2.0 added MDR → CAD/ADH subgroup identification verified against manual records and clarified CDD/KO evidence boundaries. Version 1.2.1 provides English documentation and UI text for sharing with colleagues. See [CHANGELOG.md](CHANGELOG.md) for changes and the extent of validation.
 
-## 保存与版本管理
+## Source storage and version control
 
-1. 在本机登录 GitHub，克隆此仓库，集中维护 `skills/` 中的源码。
-2. 修改前同步远端并比较现有内容；通过相关验证后提交修改。网页上传也能保存文件，但本机仍需同步网页产生的新提交。
-3. 稳定版本使用带 Skill 名称的标签，例如 `genome-family-identification-v1.0.0`；已有标签不移动或覆盖。
-4. 验证远端存在对应文件、提交与标签后，再认为这次远程备份完成。每次改进都需要提交并推送，设置远端地址本身不会自动同步文件。
+1. Sign in to GitHub locally, clone this repository, and maintain the source under `skills/`.
+2. Synchronize with the remote repository and compare existing content before editing; commit changes after relevant validation. Uploading through the website also saves files, but local copies must then be synchronized with those web-created commits.
+3. Use skill-prefixed tags for stable versions, such as `genome-family-identification-v1.0.0`. Do not move or overwrite existing tags.
+4. Consider a remote backup complete only after verifying the files, commit, and tag on the remote. Each update requires a commit and push; configuring a remote URL does not synchronize files automatically.
 
-保留源码目录可逐行查看修改；版本标签定位特定提交，Release 可附更新说明并提供该版本源码下载。[GitHub 官方说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
+Keeping the source directory allows line-by-line review of changes. A version tag identifies a specific commit; a Release can include release notes and a source download for that version. [GitHub documentation](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
 
-仓库维护可只使用 `main` 和短期修改分支。稳定后合并到 `main`、打标签并安装该版本；已经用于分析的标签不移动、不覆盖。1.0.0 保留为首次发布基线。
+The repository can be maintained with `main` and short-lived working branches. Once a version is stable, merge it into `main`, tag it, and install it. Do not move or overwrite tags already used in analyses. Version 1.0.0 remains the initial release baseline.
 
-## 新电脑恢复
+## Restore on a new computer
 
-在新环境中登录有权访问目标仓库的 GitHub 账户，然后对 Codex 说：
+In the new environment, sign in to a GitHub account with access to the target repository, then ask Codex:
 
-> 使用 $skill-installer，从 yz3394/MIA_pathway_genefamily_identification 仓库安装 skills/genome-family-identification，版本指定为 genome-family-identification-v1.2.0。安装后检查完整性与 Skill 可见性。
+> Use $skill-installer to install skills/genome-family-identification from yz3394/MIA_pathway_genefamily_identification at tag genome-family-identification-v1.2.1. After installation, check package integrity and skill visibility.
 
-也可以先把仓库克隆到本机，再把完整的 `skills/genome-family-identification/` 目录复制到 `~/.agents/skills/`。该目录是当前官方文档中的用户级发现位置，也支持符号链接。若 Skill 未显示，重启 Codex 后检查。[OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills)
+Alternatively, clone the repository locally and copy the complete `skills/genome-family-identification/` directory into `~/.agents/skills/`. This is the user-level discovery location described in the linked official documentation; symbolic links are also supported. If the skill does not appear, restart Codex and check again. [OpenAI documentation](https://learn.chatgpt.com/docs/build-skills)
 
-当前旧电脑的实际文件位于 `~/.codex/skills/genome-family-identification/`，通过 `~/.agents/skills/genome-family-identification` 链接发现。迁移时保存、恢复真实文件，原电脑上的绝对路径链接不能直接用于新电脑。
+On the original computer, the actual files are in `~/.codex/skills/genome-family-identification/` and are discovered through the `~/.agents/skills/genome-family-identification` link. Preserve and restore the actual files during migration; an absolute-path link from the original computer cannot be reused directly on a new computer.
 
-如果目标位置已经有同名 Skill，先比较版本和本地修改，再备份并更换；安装器不会自动合并已有目录。只维护一个有效安装来源，避免两个不同内容的同名 Skill 同时被发现。
+If the destination already contains a skill with the same name, compare versions and local changes before backing it up and replacing it. The installer does not merge an existing directory automatically. Maintain one active installation source to avoid discovering two different copies with the same name.
 
-## 更新与回退
+## Update and roll back
 
-- 仓库中的 `skills/` 是集中维护的源码；本机安装目录是运行副本。首次备份与已安装的 1.0.0 内容相同；安装副本的后续更新需要单独完成。
-- 修改和验证在源码中进行，发布完成后再更新运行副本。仅修改 GitHub 不会自动刷新已经安装的副本；仅修改本机副本也不会自动提交到 GitHub。
-- 更新前保存运行副本和当前标签/提交号；更新后比较完整文件集与哈希，并做一次实际调用检查。
-- 若新版出现问题，恢复上一个已验证标签对应的完整 Skill，再运行相关案例；保留新版分析结果及差异记录。
-- 重要分析记录 Skill 名称、版本、Git commit，以及实际使用文件的哈希/快照。未提交的临时修改需明确标记。
+- The repository's `skills/` directory is the maintained source; the local installation directory is the runtime copy. The first backup matched the installed 1.0.0 contents; later installation updates are separate actions.
+- Edit and validate the source, then update the runtime copy after release. Editing GitHub does not automatically refresh an installed copy, and editing an installed copy does not automatically commit changes to GitHub.
+- Before updating, preserve the runtime copy and record its current tag/commit. After updating, compare the complete file set and hashes, then check an actual invocation.
+- If a new version has problems, restore the complete skill from the previous validated tag and run the relevant cases. Preserve the new version's analysis results and a record of differences.
+- For important analyses, record the skill name, version, Git commit, and hashes or a snapshot of the files actually used. Clearly mark any uncommitted temporary changes.
 
-具体改进流程与复核案例见 [MAINTENANCE.md](MAINTENANCE.md)。
+See [MAINTENANCE.md](MAINTENANCE.md) for the update workflow and review cases.
 
-## 分析环境与数据
+## Analysis environment and data
 
-这个仓库保存工作流及规则。BLAST+、HMMER、MAFFT、建树工具、Pfam/CDD/KO 数据库需要按实际任务配置；Skill 不能替代这些软件和数据库。每次分析保留环境导出、软件/数据库版本、下载来源、参数和输入哈希。有经过实测的环境配置后，再将可迁移的配置纳入对应 Skill，删除机器特定路径。
+This repository contains workflows and decision rules. Configure BLAST+, HMMER, MAFFT, tree-building tools, and Pfam/CDD/KO databases for each task; the skill does not replace those tools or databases. Preserve the environment export, software/database versions, download sources, parameters, and input hashes for each analysis. Once an environment configuration has been tested, include its portable configuration in the relevant skill and remove machine-specific paths.
 
-完整重现旧咖啡分析还需要另外保存原始输入、结果、命令和验证记录。本仓库保留咖啡案例的基因 ID、数量及结论摘要，但未包含原始分析数据。这些方法案例已由用户确认公开保存；今后新增案例时继续核实其披露范围。
+Fully reproducing the historical coffee analyses also requires their original inputs, outputs, commands, and validation records, stored separately. This repository retains gene IDs, counts, and conclusion summaries from the coffee examples but does not include the original analysis data. The user authorized public storage of these methodological examples; check the permitted disclosure scope when adding future examples.
 
-其他自己编写的 Skill 可按同样方式加入 `skills/`。预装或第三方 Skill 优先记录来源及版本，保留其许可证；不把整个个人配置目录作为 Skill 源码上传。GitHub 之外可额外保留一次发行版 ZIP，完整 Git 历史可另做仓库镜像备份。[GitHub 备份说明](https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository)
+Other self-authored skills can be added under `skills/` in the same way. For preinstalled or third-party skills, record their source and version and preserve their licenses; do not upload an entire personal configuration directory as skill source. Keep an additional release ZIP outside GitHub if useful, and use a repository mirror backup to preserve the complete Git history. [GitHub backup documentation](https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository)
