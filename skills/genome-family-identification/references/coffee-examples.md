@@ -41,6 +41,8 @@ GA scores, model versions, full-library releases, BLAST thresholds, domain combi
 
 ## Source pointers
 
+The Chinese characters in these paths are part of the original filenames and are retained for exact provenance. They identify historical analysis records; English translations are not replacement file paths.
+
 - `MDR_family/MDR_鉴定过程与最终结果.md`
 - `1-MDR_superfamily_list-20260923.xlsx` (manual CDD/KO and phylogeny shortlist record)
 - `CAD_family_belong_toMDR/CAD_基因家族鉴定过程与最终12条_20260925.md`

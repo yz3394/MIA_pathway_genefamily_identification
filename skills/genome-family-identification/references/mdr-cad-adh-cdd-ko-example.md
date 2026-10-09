@@ -80,6 +80,8 @@ Conversely, three members of the final classical ADH set—`Cara014g010450.1`, `
 
 Original project paths below are relative to `20260921_Coffee_gene_family_etc/`; they are optional provenance, not required on a new machine.
 
+The Chinese directory name in the paths below is retained exactly as it appears in the original project, so the source pointers remain traceable.
+
 - Manual workbook: `1-MDR_superfamily_list-20260923.xlsx`.
   - CAD labels: `MDR gene list!A1:C13`; formal CAD KO rows: `CAD KEGG!A1:M12`.
   - ADH CDD shortlist: `ADH!A1:B15`; tree shortlist: `ADH!C1:D11`; adopted list: `ADH!A19:A29`.
