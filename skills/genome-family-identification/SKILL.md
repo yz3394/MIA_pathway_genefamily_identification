@@ -1,8 +1,8 @@
 ---
 name: genome-family-identification
-description: 全基因组基因家族鉴定、候选成员复核及方法记录。Identify and audit genome-wide protein-coding gene-family candidates, especially plant families, using literature-curated references, BLASTP, HMM/Pfam, NCBI CDD, KO annotation, gene-model checks, and reference phylogeny. Use for new species or families and candidate-list review. Does not establish enzyme activity from sequence alone or automatically expand into expression, synteny, or promoter analysis.
+description: Identify and audit genome-wide protein-coding gene-family candidates, especially plant families, using literature-curated references, BLASTP, HMM/Pfam, NCBI CDD, KO annotation, gene-model checks, and reference phylogeny. Use for new species or families and candidate-list review. Does not establish enzyme activity from sequence alone or automatically expand into expression, synteny, or promoter analysis.
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
 ---
 
 # Genome-wide gene-family identification
